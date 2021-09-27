@@ -1,0 +1,18 @@
+[core]
+	excludesfile = /Users/super/.gitignore_global
+[alias]
+        bf  = branch -f
+        br  = branch
+        cam = commit --amend -m
+        cb  = checkout -b
+        cm  = commit -m
+        co  = checkout
+        di  = diff
+        dif = diff
+        la  = log --oneline --decorate --graph --all
+        lo  = log --oneline
+        ps  = p4 submit
+        ra  = rebase --abort
+        rc  = rebase --continue
+        ri  = rebase -i
+        st  = status
