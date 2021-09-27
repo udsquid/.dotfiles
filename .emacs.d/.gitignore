@@ -1,0 +1,10 @@
+.mc-lists.el
+.org-id-locations
+.persp
+auto-save-list/
+bookmarks
+elpa/
+org-roam.db
+recentf
+tramp
+transient/

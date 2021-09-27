@@ -1,0 +1,77 @@
+# original keys
+
+M-c: capitalize-word
+M-u: upcase-word
+M-l: downcase-word
+
+# candidate keys
+
+C-f: forward-char
+C-b: backward-char
+C-n: next-line
+C-p: previous-line
+
+C-a: move-beginning-of-line
+C-e: move-end-of-line
+M-f: forward-word
+M-b: backward-word
+M-a: backward-sentence
+M-e: forward-sentence
+M-v: scroll-down-command
+C-v: scroll-up-command
+M-<: beginning-of-buffer
+M->: end-of-buffer
+
+M-g g (or M-g M-g): goto-line
+
+C-s: isearch-forward
+C-r: isearch-backward
+
+C-SPC: set-mark-command
+C-x C-x: exchange-point-and-mark
+
+C-u C-SPC: (cycle through mark ring)
+
+C-x h: mark-whole-buffer
+M-h: mark-paragraph
+
+--- right-hand (moving cursor) ---
+
+# M-n: forward-paragraph
+# M-e: move-end-of-line
+# M-o: avy-goto-char
+# M-i: back-to-indentation
+
+# M-f: forward-word
+# M-u: upcase-word
+# M-p: backward-paragraph
+# M-;: comment-dwim
+
+# M-l: downcase-word
+M-.: xref-find-definitions
+# M-/: dabbrev-expand
+
+# M-j: join-line -1
+# M-y: yank-pop
+# M-k: kill-line
+
+--- left-hand (editing) ---
+
+# M-t: capitalize-word
+# M-h: mark-paragraph
+# M-s: (serial key prefix)
+# M-a: move-beginning-of-line
+
+# M-w: other-window
+M-r: move-to-window-line-top-bottom
+# M-d: kill-word
+M-q: fill-paragraph
+
+# M-c: kill-ring-save (old: capitalize-word)
+M-m: back-to-indentation
+# M-x: helm-M-x
+# M-z: undo
+
+# M-b: backward-word
+# M-g: (serial key prefix)
+# M-v: yank

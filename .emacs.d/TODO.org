@@ -1,0 +1,16 @@
+* Try Other things
+
+  - [ ] maybe try to use ivy+counsel?
+  - [X] autoload perspective file when emacs is up
+    Actually I felt *autosave* is annoying every time I open up Emacs and
+    do nothing then save (just see whether something works). It will break
+    the previous working perspective.
+  - [ ] I can bind some handy keys onto mini-buffer-map
+
+* Interesting Packages
+
+  - [ ] https://github.com/emacsorphanage/helm-swoop/
+  - [ ] https://github.com/rubikitch/all-ext/
+  - [ ] https://github.com/bbatsov/helm-projectile/
+  - [ ] https://github.com/Alexander-Miller/treemacs
+  - [ ] https://github.com/joostkremers/visual-fill-column
