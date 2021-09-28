@@ -302,9 +302,11 @@
   :bind
   ("C-c C-x" . vterm-copy-mode)
   (:map vterm-mode-map
-	("M-i"     . vterm-beginning-of-line)
-	("M-p"     . vterm-previous-prompt)
-	("M-n"     . vterm-next-prompt))
+	("M-a" . vterm-beginning-of-line)
+	("M-i" . vterm-beginning-of-line)
+	("M-e" . move-end-of-line)
+	("M-p" . vterm-previous-prompt)
+	("M-n" . vterm-next-prompt))
   :config
   (setq vterm-shell "/usr/local/bin/bash")
   (setq vterm-max-scrollback 10000)
