@@ -16,3 +16,5 @@
         rc  = rebase --continue
         ri  = rebase -i
         st  = status
+[pull]
+	rebase = false
