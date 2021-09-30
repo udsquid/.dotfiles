@@ -196,6 +196,8 @@
 		      :foreground "light green")
   (set-face-attribute 'org-block nil
 		      :background nil)
+  (set-face-attribute 'bold nil
+		      :height 1.05)
   )
 
 (defun org-setup-mode ()
