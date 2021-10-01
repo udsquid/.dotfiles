@@ -55,7 +55,7 @@ trap clean_up EXIT
 function bashtime_diff() {
     local now=$(get_nanosec)
     local last=$(cat "$BASHTIME_FILE")
-    printf "%.3f" $(echo "$now - $last" | bc)
+    printf "%.2f" $(echo "$now - $last" | bc)
 }
 
 bashtime_save			# init time file
