@@ -308,7 +308,8 @@
 	("M-i" . vterm-beginning-of-line)
 	("M-e" . move-end-of-line)
 	("M-p" . vterm-previous-prompt)
-	("M-n" . vterm-next-prompt))
+	("M-n" . vterm-next-prompt)
+	("M-v" . yank))
   :config
   (setq vterm-shell "/usr/local/bin/bash")
   (setq vterm-max-scrollback 10000)
