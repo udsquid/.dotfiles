@@ -64,7 +64,7 @@ PS1='\
 $(
     err=$?
     if (( $err == 0 )); then
-        echo -en "${GREEN}\h${NORMAL}:${BLUE}\W${NORMAL} [\t|$(bashtime_diff)|$?]\$ ";
+        echo -en "${GREEN}\h${NORMAL}:${BLUE}\W${NORMAL} [\t|$(bashtime_diff)|${err}]\$ ";
     else
         echo -en "${GREEN}\h${NORMAL}:${BLUE}\W${NORMAL} [\t|$(bashtime_diff)|${RED}${err}${NORMAL}]\$ ";
     fi
