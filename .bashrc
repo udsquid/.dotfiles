@@ -64,10 +64,17 @@ PS1='\
 $(
     err=$?
     if (( $err == 0 )); then
-        echo -en "${GREEN}\h${NORMAL}:${BLUE}\W${NORMAL} [\t|$(bashtime_diff)|${err}]\$ ";
+        err_st="${err}"
     else
-        echo -en "${GREEN}\h${NORMAL}:${BLUE}\W${NORMAL} [\t|$(bashtime_diff)|${RED}${err}${NORMAL}]\$ ";
+        err_st="${RED}${err}${NORMAL}"
     fi
+
+    printf "%b:%b [%s|%s|%b]\$ " \
+        "${GREEN}\h${NORMAL}" \
+        "${BLUE}\W${NORMAL}" \
+        "\t" \
+        "$(bashtime_diff)" \
+        "${err_st}"
 )'
 
 # vterm (for Emacs)
