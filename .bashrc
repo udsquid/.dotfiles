@@ -69,11 +69,11 @@ $(
         err_st="${RED}${err}${NORMAL}"
     fi
 
-    printf "%b:%b [%s|%s|%b]\$ " \
+    printf "%b:%b [%s|%b|%b]\$ " \
         "${GREEN}\h${NORMAL}" \
         "${BLUE}\W${NORMAL}" \
         "\t" \
-        "$(bashtime_diff)" \
+        "${YELLOW}$(bashtime_diff)${NORMAL}" \
         "${err_st}"
 )'
 
