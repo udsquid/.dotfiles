@@ -203,7 +203,8 @@
 (defun org-setup-mode ()
   (visual-line-mode t)
   (org-indent-mode)
-  (auto-revert-mode t))
+  (auto-revert-mode t)
+  (org-toggle-pretty-entities))
 
 (defun org-setup-refile ()
   (setq org-refile-targets '((nil :maxlevel . 3)))
