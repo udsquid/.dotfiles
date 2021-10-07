@@ -457,10 +457,13 @@
     "oeh" '(org-entities-help             :which-key "help")
 
     ;; org-roam
-    "r"  '(:ignore t                      :which-key "org-roam")
-    "rf" '(org-roam-node-find             :which-key "find file")
-    "ri" '(org-roam-node-insert           :which-key "insert")
-    "rb" '(org-roam-buffer-toggle         :which-key "org-roam buffer")
+    "r"   '(:ignore t                      :which-key "org-roam")
+    "rf"  '(org-roam-node-find             :which-key "find file")
+    "ri"  '(org-roam-node-insert           :which-key "insert")
+    "rb"  '(org-roam-buffer-toggle         :which-key "org-roam buffer")
+    "ra"  '(:ignore t                      :which-key "alias")
+    "raa" '(org-roam-alias-add             :which-key "add")
+    "rar" '(org-roam-alias-remove          :which-key "remove")
 
     ;; org-roam-dailies
     "d"   '(:ignore t                          :which-key "dailies")
