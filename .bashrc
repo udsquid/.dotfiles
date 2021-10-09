@@ -6,15 +6,15 @@ alias ls='ls -G'
 alias ll='ls -al'
 
 # colors
-NORMAL='\e[0m'
-BLACK='\e[30m'
-RED='\e[31m'
-GREEN='\e[32m'
-YELLOW='\e[33m'
-BLUE='\e[34m'
-MAGENTA='\e[35m'
-CYAN='\e[36m'
-WHITE='\e[37m'
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+DEFAULT=$(tput setaf 9)
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -66,15 +66,15 @@ $(
     if (( $err == 0 )); then
         err_st="${err}"
     else
-        err_st="${RED}${err}${NORMAL}"
+        err_st="\[$RED\]$err\[$WHITE\]"
     fi
 
     printf "%b:%b [%s|%b|%b]\$ " \
-        "${GREEN}\h${NORMAL}" \
-        "${BLUE}\W${NORMAL}" \
+        "\[$GREEN\]\h\[$WHITE\]" \
+        "\[$BLUE\]\W\[$WHITE\]" \
         "\t" \
-        "${YELLOW}$(bashtime_diff)${NORMAL}" \
-        "${err_st}"
+        "\[$YELLOW\]$(bashtime_diff)\[$WHITE\]" \
+        "$err_st"
 )'
 
 # vterm (for Emacs)
