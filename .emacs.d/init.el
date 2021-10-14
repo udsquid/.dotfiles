@@ -496,10 +496,10 @@
   )
 
 (defun my/ins-4-spaces ()
-  (dotimes (_ 10) (insert " ")))
+  (dotimes (_ 4) (insert " ")))
 
 (defun my/del-4-spaces ()
-  (dotimes (_ 10) (delete-backward-char 1)))
+  (dotimes (_ 4) (delete-backward-char 1)))
 
 (use-package hydra
   :config
