@@ -495,6 +495,12 @@
     )
   )
 
+(defun my/ins-4-spaces ()
+  (dotimes (_ 4) (insert " ")))
+
+(defun my/del-4-spaces ()
+  (dotimes (_ 4) (delete-backward-char 1)))
+
 (use-package hydra
   :config
   (defhydra hydra-text-scale (:timeout 4)
@@ -528,6 +534,11 @@
     ("n" org-roam-dailies-goto-next-note     "next")
     ("p" org-roam-dailies-goto-previous-note "prev")
     ("q" nil                                 "finish" :exit t))
+  (defhydra hydra-indent (:timeout 4)
+    "indent"
+    ("s" (my/ins-4-spaces) "add 4 spaces")
+    ("k" (my/del-4-spaces) "del 4 spaces")
+    ("q" nil               "finish" :exit t))
   )
 
 (my/leader-keys
@@ -536,4 +547,5 @@
   "mr" '(hydra-mark-ring/body              :which-key "ring")
   "oh" '(hydra-org-heading/body            :which-key "org heading")
   "dt" '(hydra-org-roam-day-traversal/body :which-key "day traversal")
+  "i"  '(hydra-indent/body                 :which-key "indentation")
   )
