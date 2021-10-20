@@ -236,6 +236,7 @@
   :hook (org-mode . org-setup-mode)
   :config
   (setq org-confirm-babel-evaluate nil)
+  (setq org-ellipsis " »")
   (setq org-hide-emphasis-markers t)
   (setq org-startup-folded nil)
   (setq org-log-into-drawer t)
