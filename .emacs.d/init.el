@@ -243,6 +243,7 @@
   (setq org-startup-folded nil)
   (setq org-log-into-drawer t)
   (setq org-startup-with-inline-images t)
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
   (org-setup-org-protocol)
