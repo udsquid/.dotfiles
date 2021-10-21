@@ -214,20 +214,22 @@
 
 (defun org-setup-org-protocol ()
   (setq org-directory "~/Dropbox/org/")
-  (setq org-agenda-files (list (concat org-directory "inbox.org")))
+  (require 'find-lisp)
+  (setq org-agenda-files
+	(find-lisp-find-files org-directory "\.org$"))
 
   (server-start)
   (require 'org-protocol)
 
   (setq org-capture-templates
 	`(("i" "Inbox"
-	   entry (file ,(concat org-directory "inbox.org"))
+	   entry (file ,(concat org-directory "Inbox.org"))
 	   "* TODO %?")
 	  ("c" "org-protocol-capture"
-	   entry (file ,(concat org-directory "inbox.org"))
+	   entry (file ,(concat org-directory "Inbox.org"))
 	   "* TODO [[%:link][%:description]]\n\n%u" :immediate-finish t)
 	  ("q" "org-protocol-capture (with quote)"
-	   entry (file ,(concat org-directory "inbox.org"))
+	   entry (file ,(concat org-directory "Inbox.org"))
 	   "* TODO [[%:link][%:description]]\n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%u" :immediate-finish t)
 	  ))
   )
