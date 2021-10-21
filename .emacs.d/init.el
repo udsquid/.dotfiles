@@ -475,6 +475,7 @@
     "dct" '(org-roam-dailies-capture-today     :which-key "today")
     "dcy" '(org-roam-dailies-capture-yesterday :which-key "yesterday")
     "dg"  '(:ignore t                          :which-key "goto")
+    "dgg" '(org-roam-dailies-goto-date         :which-key "certain day")
     "dgt" '(org-roam-dailies-goto-today        :which-key "today")
     "dgy" '(org-roam-dailies-goto-yesterday    :which-key "yesterday")
 
