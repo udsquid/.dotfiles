@@ -452,7 +452,7 @@
     "or"  '(org-refile                    :which-key "refile")
     "oa"  '(org-archive-subtree           :which-key "archive")
     "ob"  '(org-insert-structure-template :which-key "block")
-    "os"  '(org-sort                      :which-key "sort")
+    "ot"  '(org-sort                      :which-key "sort")
     "on"  '(org-add-note                  :which-key "note")
     "ol"  '(:ignore t                     :which-key "link")
     "ols" '(org-store-link                :which-key "store")
@@ -462,6 +462,8 @@
     "oe"  '(:ignore t                     :which-key "entity")
     "oep" '(org-toggle-pretty-entities    :which-key "pretty")
     "oeh" '(org-entities-help             :which-key "help")
+    "os"  '(org-schedule                  :which-key "schedule")
+    "od"  '(org-deadline                  :which-key "deadline")
 
     ;; org-roam
     "r"   '(:ignore t                      :which-key "org-roam")
@@ -475,6 +477,7 @@
     ;; org-roam-dailies
     "d"   '(:ignore t                          :which-key "dailies")
     "dc"  '(:ignore t                          :which-key "capture")
+    "dcc" '(org-roam-dailies-capture-date      :which-key "certain day")
     "dct" '(org-roam-dailies-capture-today     :which-key "today")
     "dcy" '(org-roam-dailies-capture-yesterday :which-key "yesterday")
     "dg"  '(:ignore t                          :which-key "goto")
