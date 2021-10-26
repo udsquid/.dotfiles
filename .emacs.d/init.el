@@ -210,7 +210,10 @@
   (org-toggle-pretty-entities))
 
 (defun org-setup-refile ()
-  (setq org-refile-targets '((nil :maxlevel . 3)))
+  (setq org-refile-targets
+	'(("Archive.org" :maxlevel . 3)
+	  ("Project.org" :maxlevel . 3)
+	  ("Inbox.org" :maxlevel . 3)))
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-use-outline-path 'file)
   (setq org-refile-allow-creating-parent-nodes 'confirm))
