@@ -216,7 +216,7 @@
   (setq org-refile-allow-creating-parent-nodes 'confirm))
 
 (defun org-setup-org-protocol ()
-  (setq org-directory "~/Dropbox/org/")
+  (setq org-directory "~/Dropbox/mywiki/GTD")
   (require 'find-lisp)
   (setq org-agenda-files
 	(find-lisp-find-files org-directory "\.org$"))
