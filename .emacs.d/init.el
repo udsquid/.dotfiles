@@ -1,3 +1,6 @@
+;; -*- lexical-binding: t; -*-
+;; programs may run faster with lexical-binding
+
 ;; set 'command' as META key, 'option/alt' as SUPER key
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
