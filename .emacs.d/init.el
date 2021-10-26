@@ -215,13 +215,13 @@
   (setq org-refile-use-outline-path 'file)
   (setq org-refile-allow-creating-parent-nodes 'confirm))
 
-(defun org-setup-org-agenda ()
+(defun org-setup-agenda ()
   (setq org-directory "~/Dropbox/mywiki/GTD")
   (require 'find-lisp)
   (setq org-agenda-files
 	(find-lisp-find-files org-directory "\.org$")))
 
-(defun org-setup-org-capture ()
+(defun org-setup-capture ()
   (server-start)
   (require 'org-protocol)
 
@@ -253,8 +253,8 @@
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
-  (org-setup-org-agenda)
-  (org-setup-org-capture)
+  (org-setup-agenda)
+  (org-setup-capture)
 
   ;; enable language execution
   (org-babel-do-load-languages 'org-babel-load-languages
