@@ -222,7 +222,19 @@
   (setq org-directory "~/Dropbox/mywiki/GTD")
   (require 'find-lisp)
   (setq org-agenda-files
-	(find-lisp-find-files org-directory "\.org$")))
+	(find-lisp-find-files org-directory "\.org$"))
+  (setq org-agenda-custom-commands
+	`(("g" "Agenda Overview"
+	   ((agenda ""
+		    ((org-deadline-warning-days 7)))
+	    (todo "TODO"
+		  ((org-agenda-overriding-header "To Refile")
+		   (org-agenda-files '(,(concat org-directory "/Inbox.org")))))
+	    (todo "TODO"
+		  ((org-agenda-overriding-header "Projects")
+		   (org-agenda-files '(,(concat org-directory "/Project.org")))))
+	    ))))
+  )
 
 (defun org-setup-capture ()
   (server-start)
