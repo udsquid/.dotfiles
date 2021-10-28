@@ -219,20 +219,19 @@
   (setq org-refile-allow-creating-parent-nodes 'confirm))
 
 (defun org-setup-agenda ()
-  (setq org-directory "~/Dropbox/mywiki/GTD")
   (require 'find-lisp)
   (setq org-agenda-files
-	(find-lisp-find-files org-directory "\.org$"))
+	(find-lisp-find-files (concat org-directory "/GTD") "\.org$"))
   (setq org-agenda-custom-commands
 	`(("g" "Agenda Overview"
 	   ((agenda ""
 		    ((org-deadline-warning-days 7)))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "To Refile")
-		   (org-agenda-files '(,(concat org-directory "/Inbox.org")))))
+		   (org-agenda-files '(,(expand-file-name "GTD/Inbox.org" org-directory)))))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
-		   (org-agenda-files '(,(concat org-directory "/Project.org")))))
+		   (org-agenda-files '(,(expand-file-name "GTD/Project.org" org-directory)))))
 	    ))))
   )
 
@@ -242,13 +241,13 @@
 
   (setq org-capture-templates
 	`(("i" "Inbox"
-	   entry (file ,(concat org-directory "Inbox.org"))
+	   entry (file ,(expand-file-name "GTD/Inbox.org" org-directory))
 	   "* TODO %?")
 	  ("c" "org-protocol-capture"
-	   entry (file ,(concat org-directory "Inbox.org"))
+	   entry (file ,(expand-file-name "GTD/Inbox.org" org-directory))
 	   "* TODO [[%:link][%:description]]\n\n%u" :immediate-finish t)
 	  ("q" "org-protocol-capture (with quote)"
-	   entry (file ,(concat org-directory "Inbox.org"))
+	   entry (file ,(expand-file-name "GTD/Inbox.org" org-directory))
 	   "* TODO [[%:link][%:description]]\n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%u" :immediate-finish t)
 	  ))
   )
@@ -265,6 +264,7 @@
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
+  (setq org-directory "~/Dropbox/mywiki")
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
