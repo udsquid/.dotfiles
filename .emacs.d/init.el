@@ -246,6 +246,9 @@
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
 		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
+	    (todo "TODO"
+		  ((org-agenda-overriding-header "One-off Tasks")
+		   (org-agenda-files '(,(expand-file-name "GTD/Next.org" org-directory)))))
 	    ))))
   )
 
