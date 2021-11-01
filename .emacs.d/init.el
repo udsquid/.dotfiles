@@ -211,8 +211,9 @@
 
 (defun org-setup-refile ()
   (setq org-refile-targets
-	'(("Archive.org" :maxlevel . 3)
-	  ("Inbox.org" :maxlevel . 3)))
+	'(("Archive.org" :maxlevel . 1)
+	  ("Next.org" :level . 0)
+	  ("Inbox.org" :level . 0)))
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-use-outline-path 'file)
   (setq org-refile-allow-creating-parent-nodes 'confirm))
