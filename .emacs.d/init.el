@@ -243,13 +243,13 @@
 		    ((org-deadline-warning-days 7)))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "To Refile")
-		   (org-agenda-files '(,(expand-file-name "GTD/Inbox.org" org-directory)))))
+		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
 		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "One-off Tasks")
-		   (org-agenda-files '(,(expand-file-name "GTD/Next.org" org-directory)))))
+		   (org-agenda-files '(,(concat org-directory "GTD/Next.org")))))
 	    ))))
   )
 
@@ -259,13 +259,13 @@
 
   (setq org-capture-templates
 	`(("i" "Inbox"
-	   entry (file ,(expand-file-name "GTD/Inbox.org" org-directory))
+	   entry (file ,(concat org-directory "GTD/Inbox.org"))
 	   "* TODO %?")
 	  ("c" "org-protocol-capture"
-	   entry (file ,(expand-file-name "GTD/Inbox.org" org-directory))
+	   entry (file ,(concat org-directory "GTD/Inbox.org"))
 	   "* TODO [[%:link][%:description]]\n\n%u" :immediate-finish t)
 	  ("q" "org-protocol-capture (with quote)"
-	   entry (file ,(expand-file-name "GTD/Inbox.org" org-directory))
+	   entry (file ,(concat org-directory "GTD/Inbox.org"))
 	   "* TODO [[%:link][%:description]]\n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%u" :immediate-finish t)
 	  ))
   )
@@ -282,7 +282,7 @@
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
-  (setq org-directory "~/Dropbox/mywiki")
+  (setq org-directory "~/Dropbox/mywiki/")
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
