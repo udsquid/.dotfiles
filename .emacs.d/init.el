@@ -218,6 +218,20 @@
   (setq org-refile-use-outline-path 'file)
   (setq org-refile-allow-creating-parent-nodes 'confirm))
 
+(defun my/org-roam-filter-by-tag (tag-name)
+  (lambda (node)
+    (member tag-name (org-roam-node-tags node))))
+
+(defun my/org-roam-list-notes-by-tag (tag-name)
+  (mapcar #'org-roam-node-file
+          (seq-filter
+           (my/org-roam-filter-by-tag tag-name)
+           (org-roam-node-list))))
+
+(defun my/org-roam-refresh-agenda-list ()
+  (interactive)
+  (setq org-agenda-files (my/org-roam-list-notes-by-tag "Project")))
+
 (defun org-setup-agenda ()
   (require 'find-lisp)
   (setq org-agenda-files
@@ -231,7 +245,7 @@
 		   (org-agenda-files '(,(expand-file-name "GTD/Inbox.org" org-directory)))))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
-		   (org-agenda-files '(,(expand-file-name "GTD/Project.org" org-directory)))))
+		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
 	    ))))
   )
 
