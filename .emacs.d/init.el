@@ -235,7 +235,8 @@
 (defun org-setup-agenda ()
   (require 'find-lisp)
   (setq org-agenda-files
-	(find-lisp-find-files (concat org-directory "/GTD") "\.org$"))
+	'("~/Dropbox/mywiki/GTD/Inbox.org"
+	  "~/Dropbox/mywiki/GTD/Next.org"))
   (setq org-agenda-custom-commands
 	`(("g" "Agenda Overview"
 	   ((agenda ""
