@@ -20,13 +20,17 @@ DEFAULT=$(tput setaf 9)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+if [[ -d "$HOME/.pyenv" ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+fi
 
 # mysql
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+if [[ -d "/usr/local/opt/mysql-client/bin" ]]; then
+    export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+fi
 
 # my prompt
 function get_nanosec() {
