@@ -244,6 +244,9 @@
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "To Refile")
 		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
+	    (todo "NEXT"
+		  ((org-agenda-overriding-header "In Progress")
+		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
 		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
