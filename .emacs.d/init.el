@@ -212,6 +212,7 @@
 (defun org-setup-refile ()
   (setq org-refile-targets
 	'(("Archive.org" :maxlevel . 1)
+	  ("Cancel.org" :level . 0)
 	  ("Next.org" :level . 0)
 	  ("Inbox.org" :level . 0)))
   (setq org-outline-path-complete-in-steps nil)
@@ -287,7 +288,8 @@
   (setq org-log-into-drawer t)
   (setq org-directory "~/Dropbox/mywiki/")
   (setq org-todo-keywords
-	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")))
+	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+	  (sequence "|" "CANCELLED(c!)")))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
