@@ -253,7 +253,7 @@
 		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
 	    (tags-todo "+Work"
 		  ((org-agenda-overriding-header "Work")))
-	    (tags-todo "+Errand|+Chore"
+	    (tags-todo "-Work"
 		  ((org-agenda-overriding-header "One-off Tasks")
 		   (org-agenda-files '(,(concat org-directory "GTD/Backlog.org")))))
 	    ))))
