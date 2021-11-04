@@ -213,7 +213,7 @@
   (setq org-refile-targets
 	'(("Archive.org" :maxlevel . 1)
 	  ("Cancel.org" :level . 0)
-	  ("Next.org" :level . 0)
+	  ("Backlog.org" :level . 0)
 	  ("Inbox.org" :level . 0)))
   (setq org-outline-path-complete-in-steps nil)
   (setq org-refile-use-outline-path 'file)
@@ -247,13 +247,13 @@
 		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
 	    (todo "NEXT"
 		  ((org-agenda-overriding-header "In Progress")
-		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
+		   (org-agenda-files '(,(concat org-directory "GTD/Backlog.org")))))
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
 		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
-	    (todo "TODO"
+	    (tags-todo "+Errand|+Chore"
 		  ((org-agenda-overriding-header "One-off Tasks")
-		   (org-agenda-files '(,(concat org-directory "GTD/Next.org")))))
+		   (org-agenda-files '(,(concat org-directory "GTD/Backlog.org")))))
 	    ))))
   )
 
