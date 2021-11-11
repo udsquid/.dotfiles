@@ -235,6 +235,7 @@
 
 (defun org-setup-agenda ()
   (require 'find-lisp)
+  (require 'org-roam)
   ;; also want to see done tasks in 'Archive.org'
   (setq org-agenda-files
 	(find-lisp-find-files (concat org-directory "/GTD") "\.org$"))
