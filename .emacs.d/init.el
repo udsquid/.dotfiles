@@ -246,7 +246,7 @@
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "To Refile")
 		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
-	    (todo "NEXT"
+	    (todo "NEXT|DONE"
 		  ((org-agenda-overriding-header "In Progress")
 		   (org-agenda-files '(,(concat org-directory "GTD/Queue.org")
 				       ,(apply 'format "%s"
