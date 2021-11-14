@@ -231,14 +231,17 @@
 
 (defun my/org-roam-refresh-agenda-list ()
   (interactive)
-  (setq org-agenda-files (my/org-roam-list-notes-by-tag "Project")))
+  (setq org-agenda-files
+	(append (find-lisp-find-files (concat org-directory "/GTD") "\.org$")
+		(my/org-roam-list-notes-by-tag "Project"))))
 
 (defun org-setup-agenda ()
   (require 'find-lisp)
   (require 'org-roam)
   ;; also want to see done tasks in 'Archive.org'
   (setq org-agenda-files
-	(find-lisp-find-files (concat org-directory "/GTD") "\.org$"))
+	(append (find-lisp-find-files (concat org-directory "/GTD") "\.org$")
+		(my/org-roam-list-notes-by-tag "Project")))
   (setq org-agenda-custom-commands
 	`(("g" "Agenda Overview"
 	   ((agenda ""
@@ -494,24 +497,25 @@
     "my" '(yank-rectangle                  :which-key "yank multiple")
 
     ;; org-mode
-    "o"   '(:ignore t                     :which-key "org-mode")
-    "oc"  '(org-capture                   :which-key "capture")
-    "og"  '(org-agenda                    :which-key "agenda")
-    "or"  '(org-refile                    :which-key "refile")
-    "oa"  '(org-archive-subtree           :which-key "archive")
-    "ob"  '(org-insert-structure-template :which-key "block")
-    "ot"  '(org-sort                      :which-key "sort")
-    "on"  '(org-add-note                  :which-key "note")
-    "ol"  '(:ignore t                     :which-key "link")
-    "ols" '(org-store-link                :which-key "store")
-    "oli" '(org-insert-link               :which-key "insert")
-    "oo"  '(org-open-at-point             :which-key "open")
-    "op"  '(org-set-property              :which-key "property")
-    "oe"  '(:ignore t                     :which-key "entity")
-    "oep" '(org-toggle-pretty-entities    :which-key "pretty")
-    "oeh" '(org-entities-help             :which-key "help")
-    "os"  '(org-schedule                  :which-key "schedule")
-    "od"  '(org-deadline                  :which-key "deadline")
+    "o"   '(:ignore t                       :which-key "org-mode")
+    "oc"  '(org-capture                     :which-key "capture")
+    "og"  '(org-agenda                      :which-key "agenda")
+    "or"  '(org-refile                      :which-key "refile")
+    "oa"  '(org-archive-subtree             :which-key "archive")
+    "ob"  '(org-insert-structure-template   :which-key "block")
+    "ot"  '(org-sort                        :which-key "sort")
+    "on"  '(org-add-note                    :which-key "note")
+    "of"  '(my/org-roam-refresh-agenda-list :which-key "rebuild org-agenda-files")
+    "ol"  '(:ignore t                       :which-key "link")
+    "ols" '(org-store-link                  :which-key "store")
+    "oli" '(org-insert-link                 :which-key "insert")
+    "oo"  '(org-open-at-point               :which-key "open")
+    "op"  '(org-set-property                :which-key "property")
+    "oe"  '(:ignore t                       :which-key "entity")
+    "oep" '(org-toggle-pretty-entities      :which-key "pretty")
+    "oeh" '(org-entities-help               :which-key "help")
+    "os"  '(org-schedule                    :which-key "schedule")
+    "od"  '(org-deadline                    :which-key "deadline")
 
     ;; org-roam
     "r"   '(:ignore t                      :which-key "org-roam")
