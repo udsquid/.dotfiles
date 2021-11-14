@@ -503,7 +503,7 @@
     "or"  '(org-refile                      :which-key "refile")
     "oa"  '(org-archive-subtree             :which-key "archive")
     "ob"  '(org-insert-structure-template   :which-key "block")
-    "ot"  '(org-sort                        :which-key "sort")
+    "os"  '(org-sort                        :which-key "sort")
     "on"  '(org-add-note                    :which-key "note")
     "of"  '(my/org-roam-refresh-agenda-list :which-key "rebuild org-agenda-files")
     "ol"  '(:ignore t                       :which-key "link")
@@ -514,8 +514,6 @@
     "oe"  '(:ignore t                       :which-key "entity")
     "oep" '(org-toggle-pretty-entities      :which-key "pretty")
     "oeh" '(org-entities-help               :which-key "help")
-    "os"  '(org-schedule                    :which-key "schedule")
-    "od"  '(org-deadline                    :which-key "deadline")
 
     ;; org-roam
     "r"   '(:ignore t                      :which-key "org-roam")
