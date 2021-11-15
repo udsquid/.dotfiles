@@ -509,6 +509,7 @@
     "os"  '(org-sort                        :which-key "sort")
     "on"  '(org-add-note                    :which-key "note")
     "of"  '(my/org-roam-refresh-agenda-list :which-key "rebuild org-agenda-files")
+    "ot"  '(org-set-tags-command            :which-key "set tags")
     "ol"  '(:ignore t                       :which-key "link")
     "ols" '(org-store-link                  :which-key "store")
     "oli" '(org-insert-link                 :which-key "insert")
