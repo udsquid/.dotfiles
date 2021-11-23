@@ -211,7 +211,8 @@
 
 (defun org-setup-refile ()
   (setq org-refile-targets
-	'(("Archive.org" :maxlevel . 1)
+	'((nil :maxlevel . 5)
+	  ("Archive.org" :maxlevel . 1)
 	  ("Cancel.org" :level . 0)
 	  ("Queue.org" :level . 0)
 	  ("Inbox.org" :level . 0)))
