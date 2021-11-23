@@ -302,6 +302,7 @@
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
 	  (sequence "|" "CANCELLED(c!)")))
+  (setq org-image-actual-width 600)
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
