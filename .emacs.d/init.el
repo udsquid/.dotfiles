@@ -260,9 +260,9 @@
 	    (todo "TODO"
 		  ((org-agenda-overriding-header "Projects")
 		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
-	    (tags-todo "+Work"
+	    (tags-todo "+Work+TODO=\"TODO\""
 		  ((org-agenda-overriding-header "Work")))
-	    (tags-todo "-Work"
+	    (tags-todo "-Work+TODO=\"TODO\""
 		  ((org-agenda-overriding-header "One-off Tasks")
 		   (org-agenda-files '(,(concat org-directory "GTD/Queue.org")))))
 	    ))))
