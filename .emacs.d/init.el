@@ -594,7 +594,7 @@
     ("o" org-mark-ring-goto "org")
     ("e" my/jump-to-mark    "emacs")
     ("q" nil                "finish" :exit t))
-  (defhydra hydra-org-heading (:timeout 4)
+  (defhydra hydra-org-heading ()
     "heading"
     ("n" org-next-visible-heading        "next")
     ("p" org-previous-visible-heading    "prev")
