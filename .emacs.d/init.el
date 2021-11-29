@@ -393,6 +393,10 @@
 (use-package undo-fu
   :bind ("M-Z" . undo-fu-only-redo))
 
+;; able to recognize remote fancy shell prompt
+(setq tramp-shell-prompt-pattern
+      "\\(?:^\\|\r\\)[^]#$%>\n]*#?[]#$%>].* *\\(^[\\[[0-9;]*[a-zA-Z] *\\)*")
+
 ;; --- handy custom keys ---
 
 ;; ### cursor moving ###
