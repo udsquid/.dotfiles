@@ -247,7 +247,7 @@
 	`(("g" "Agenda Overview"
 	   ((agenda ""
 		    ((org-deadline-warning-days 7)))
-	    (todo "TODO"
+	    (todo "TODO|NEXT"
 		  ((org-agenda-overriding-header "To Refile")
 		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
 	    (todo "DONE|CANCELLED"
