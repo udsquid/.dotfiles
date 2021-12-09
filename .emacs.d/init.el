@@ -398,6 +398,12 @@
 (setq tramp-shell-prompt-pattern
       "\\(?:^\\|\r\\)[^]#$%>\n]*#?[]#$%>].* *\\(^[\\[[0-9;]*[a-zA-Z] *\\)*")
 
+;; better dired experience
+(setq delete-by-moving-to-trash t)
+
+(if (eq system-type 'darwin)
+    (setq trash-directory "~/.Trash"))
+
 ;; --- handy custom keys ---
 
 ;; ### cursor moving ###
