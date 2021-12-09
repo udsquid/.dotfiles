@@ -489,10 +489,11 @@
     "pr" '(persp-rename        :which-key "rename")
 
     ;; helpful
-    "h"  '(:ignore t        :which-key "help")
-    "hf" '(helpful-callable :which-key "function")
-    "hv" '(helpful-variable :which-key "variable")
-    "hk" '(helpful-key      :which-key "key")
+    "h"  '(:ignore t         :which-key "help")
+    "hf" '(helpful-callable  :which-key "function")
+    "hv" '(helpful-variable  :which-key "variable")
+    "hk" '(helpful-key       :which-key "key")
+    "hb" '(describe-bindings :which-key "binding")
 
     ;; file
     "f"  '(:ignore t                :which-key "file")
