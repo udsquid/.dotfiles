@@ -493,7 +493,7 @@
     "hf" '(helpful-callable :which-key "function")
     "hv" '(helpful-variable :which-key "variable")
     "hk" '(helpful-key      :which-key "key")
-    "hb" '(describe-mode    :which-key "mode")
+    "hm" '(describe-mode    :which-key "mode")
 
     ;; file
     "f"  '(:ignore t                :which-key "file")
