@@ -565,7 +565,7 @@
 
     ;; kill-ring
     "k"  '(:ignore t           :which-key "kill-ring")
-    "ks" '(helm-show-kill-ring :which-key "show")
+    "kk" '(helm-show-kill-ring :which-key "show")
     )
   )
 
