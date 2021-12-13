@@ -346,7 +346,6 @@
 (setq org-roam-v2-ack t)
 (use-package org-roam
   :after org
-  :defer
   :custom
   (org-roam-directory "~/Dropbox/mywiki")
   (org-roam-completion-everywhere t)
