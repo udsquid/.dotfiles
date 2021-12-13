@@ -172,7 +172,8 @@
 (use-package restclient)
 
 ;; better git client
-(use-package magit)
+(use-package magit
+  :defer t)
 
 ;; better note app
 (defun org-setup-font ()
