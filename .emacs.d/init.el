@@ -341,9 +341,10 @@
 (use-package visual-fill-column
   :hook (org-mode . org-setup-visual))
 
+(setq org-roam-v2-ack t)
 (use-package org-roam
-  :init
-  (setq org-roam-v2-ack t)
+  :after org
+  :defer
   :custom
   (org-roam-directory "~/Dropbox/mywiki")
   (org-roam-completion-everywhere t)
