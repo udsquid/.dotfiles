@@ -69,7 +69,8 @@
 (setq column-number-mode t)
 
 ;; better help system
-(use-package helpful)
+(use-package helpful
+  :defer t)
 
 ;; powerful search framework
 (use-package helm
@@ -101,6 +102,7 @@
 
 ;; show hint for key bindings
 (use-package which-key
+  :defer t
   :config
   (which-key-mode))
 
