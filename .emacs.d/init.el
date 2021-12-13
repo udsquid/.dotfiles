@@ -170,9 +170,6 @@
   (show-smartparens-global-mode t)
   (add-hook 'prog-mode-hook 'turn-on-smartparens-mode))
 
-;; HTTP REST tool
-(use-package restclient)
-
 ;; better git client
 (use-package magit
   :defer t
