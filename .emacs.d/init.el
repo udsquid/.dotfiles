@@ -394,9 +394,11 @@
   (unbind-key "M-n" vterm-mode-map))
 
 ;; copy environment variables
-(use-package exec-path-from-shell)
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :after vterm
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 ;; better redo
 (use-package undo-fu
