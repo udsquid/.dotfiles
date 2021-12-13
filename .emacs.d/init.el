@@ -173,7 +173,9 @@
 
 ;; better git client
 (use-package magit
-  :defer t)
+  :defer t
+  :config
+  (setenv "LANG" "en_US"))
 
 ;; better note app
 (defun org-setup-font ()
