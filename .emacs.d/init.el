@@ -24,6 +24,8 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+(setq use-package-always-defer t)
+(setq use-package-verbose t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -53,6 +55,7 @@
 
 ;; setup theme
 (use-package cyberpunk-theme
+  :demand t
   :init
   (load-theme 'cyberpunk t))
 
@@ -77,8 +80,7 @@
 (setq column-number-mode t)
 
 ;; better help system
-(use-package helpful
-  :defer t)
+(use-package helpful)
 
 ;; powerful search framework
 (use-package helm
@@ -110,7 +112,6 @@
 
 ;; show hint for key bindings
 (use-package which-key
-  :defer t
   :config
   (which-key-mode))
 
@@ -121,6 +122,7 @@
 
 ;; show recent files and projects
 (use-package dashboard
+  :demand t
   :config
   (dashboard-setup-startup-hook))
 
