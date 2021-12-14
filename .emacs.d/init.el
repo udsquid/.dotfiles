@@ -14,9 +14,8 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
-
-;; Run this only when I want to add new packages
-;; (package-refresh-contents)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; install use-package
 (unless (package-installed-p 'use-package)
