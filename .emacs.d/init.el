@@ -33,7 +33,7 @@
  '(highlight-indent-guides-auto-character-face-perc 20)
  '(highlight-indent-guides-method 'bitmap)
  '(package-selected-packages
-   '(all-the-icons-dired org-download org-roam-protocol org-protocol hydra general org-roam undo-fu visual-fill-column org-bullets exec-path-from-shell vterm org org-tempo magit ivy-rich restclient smartparens ws-butler anzu perspective doom-modeline all-the-icons multiple-cursors dashboard highlight-indent-guides which-key expand-region helm helpful avy cyberpunk-theme use-package))
+   '(gcmh all-the-icons-dired org-download org-roam-protocol org-protocol hydra general org-roam undo-fu visual-fill-column org-bullets exec-path-from-shell vterm org org-tempo magit ivy-rich restclient smartparens ws-butler anzu perspective doom-modeline all-the-icons multiple-cursors dashboard highlight-indent-guides which-key expand-region helm helpful avy cyberpunk-theme use-package))
  '(persp-mode-prefix-key [8388720])
  '(persp-state-default-file (concat user-emacs-directory ".persp")))
 (custom-set-faces
@@ -42,6 +42,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; better hacks on garbage collection
+(use-package gcmh
+  :demand t
+  :init
+  (gcmh-mode t)
+  :config
+  (setq gcmh-verbose t))
 
 ;; setup theme
 (use-package cyberpunk-theme
