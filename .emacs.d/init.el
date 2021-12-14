@@ -26,23 +26,11 @@
 (setq use-package-always-defer t)
 (setq use-package-verbose t)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(highlight-indent-guides-auto-character-face-perc 20)
- '(highlight-indent-guides-method 'bitmap)
- '(package-selected-packages
-   '(gcmh all-the-icons-dired org-download org-roam-protocol org-protocol hydra general org-roam undo-fu visual-fill-column org-bullets exec-path-from-shell vterm org org-tempo magit ivy-rich restclient smartparens ws-butler anzu perspective doom-modeline all-the-icons multiple-cursors dashboard highlight-indent-guides which-key expand-region helm helpful avy cyberpunk-theme use-package))
- '(persp-mode-prefix-key [8388720])
- '(persp-state-default-file (concat user-emacs-directory ".persp")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; clean up emacs directory
+(use-package no-littering
+  :demand t
+  :config
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
 
 ;; better hacks on garbage collection
 (use-package gcmh
@@ -117,7 +105,10 @@
 ;; highlight indentation levels
 (use-package highlight-indent-guides
   :init
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  :custom
+  (highlight-indent-guides-auto-character-face-perc 20)
+  (highlight-indent-guides-method 'bitmap))
 
 ;; show recent files and projects
 (use-package dashboard
@@ -157,7 +148,9 @@
   :bind (("C-x b" . persp-switch-to-buffer*)
 	 ("C-x k" . persp-kill-buffer*))
   :custom
-  (persp-sort 'access))
+  (persp-sort 'access)
+  (persp-mode-prefix-key [8388720])
+  (persp-state-default-file (concat user-emacs-directory ".persp")))
 
 ;; show the matches while in search/replace
 (use-package anzu
