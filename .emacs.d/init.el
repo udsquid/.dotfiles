@@ -498,14 +498,15 @@
 
   (my/leader-keys
     ;; perspective
-    "p"  '(:ignore t           :which-key "persp")
-    "pt" '(persp-switch        :which-key "switch/create")
-    "pp" '(persp-switch-last   :which-key "back")
-    "pl" '(persp-state-load    :which-key "load")
-    "ps" '(persp-state-save    :which-key "save")
-    "pk" '(persp-kill          :which-key "kill")
-    "pm" '(persp-set-buffer    :which-key "move")
-    "pr" '(persp-rename        :which-key "rename")
+    "p"  '(:ignore t              :which-key "persp")
+    "pt" '(persp-switch           :which-key "switch/create")
+    "pp" '(persp-switch-last      :which-key "back")
+    "pf" '(persp-switch-to-buffer :which-key "buffer")
+    "pl" '(persp-state-load       :which-key "load")
+    "ps" '(persp-state-save       :which-key "save")
+    "pk" '(persp-kill             :which-key "kill")
+    "pm" '(persp-set-buffer       :which-key "move")
+    "pr" '(persp-rename           :which-key "rename")
 
     ;; helpful
     "h"  '(:ignore t        :which-key "help")
