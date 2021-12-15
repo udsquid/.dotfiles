@@ -99,6 +99,7 @@
 
 ;; show hint for key bindings
 (use-package which-key
+  :demand t
   :config
   (which-key-mode))
 
