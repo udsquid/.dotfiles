@@ -24,7 +24,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 (setq use-package-always-defer t)
-(setq use-package-verbose t)
 
 ;; clean up emacs directory
 (use-package no-littering
@@ -36,9 +35,7 @@
 (use-package gcmh
   :demand t
   :init
-  (gcmh-mode t)
-  :config
-  (setq gcmh-verbose t))
+  (gcmh-mode t))
 
 ;; setup theme
 (use-package cyberpunk-theme
