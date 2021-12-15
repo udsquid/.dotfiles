@@ -499,8 +499,8 @@
   (my/leader-keys
     ;; perspective
     "p"  '(:ignore t           :which-key "persp")
-    "pt" '(persp-switch        :which-key "switch or create")
-    "pp" '(persp-switch-last   :which-key "switch back")
+    "pt" '(persp-switch        :which-key "switch/create")
+    "pp" '(persp-switch-last   :which-key "back")
     "pl" '(persp-state-load    :which-key "load")
     "ps" '(persp-state-save    :which-key "save")
     "pk" '(persp-kill          :which-key "kill")
