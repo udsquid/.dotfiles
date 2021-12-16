@@ -554,6 +554,7 @@
     "ra"  '(:ignore t                      :which-key "alias")
     "raa" '(org-roam-alias-add             :which-key "add")
     "rar" '(org-roam-alias-remove          :which-key "remove")
+    "rr"  '(org-roam-refile                :which-key "refile")
 
     ;; org-roam-dailies
     "d"   '(:ignore t                          :which-key "dailies")
