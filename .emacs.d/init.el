@@ -376,18 +376,31 @@
   (setq-default org-download-heading-lvl nil)
   )
 
+(use-package org-appear
+  :hook (org-mode . org-appear-mode)
+  :custom
+  (org-appear-autolinks t)
+  (org-appear-autosubmarkers t))
+
+(use-package deft
+  :commands (deft)
+  :custom
+  (deft-directory org-roam-directory)
+  (deft-recursive t)
+  (deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"))
+
 ;; better terminal
 (use-package vterm
   :commands vterm
   :bind
-  ("C-c C-x" . vterm-copy-mode)
   (:map vterm-mode-map
 	("M-a" . vterm-beginning-of-line)
 	("M-i" . vterm-beginning-of-line)
 	("M-e" . move-end-of-line)
 	("M-p" . vterm-previous-prompt)
 	("M-n" . vterm-next-prompt)
-	("M-v" . yank))
+	("M-v" . yank)
+	("C-c C-x" . vterm-copy-mode))
   :config
   (setq vterm-shell "/usr/local/bin/bash")
   (setq vterm-max-scrollback 10000)
