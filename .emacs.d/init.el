@@ -327,7 +327,10 @@
   (require 'org-tempo)
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-  (add-to-list 'org-structure-template-alist '("py" . "src python")))
+  (add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+  :custom
+  (org-image-actual-width nil))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
