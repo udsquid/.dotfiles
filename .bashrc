@@ -2,7 +2,15 @@
 export LC_ALL='en_US.UTF-8'
 
 # aliases
-alias ls='ls --color=always'
+if [[ $OSTYPE =~ darwin.* ]]; then
+    alias ls='ls -G'
+elif [[ $OSTYPE =~ linux-gnu.* ]]; then
+    alias ls='ls --color=always'
+else
+    echo "ERROR: not supported platform" >&2
+    exit 1
+fi
+
 alias ll='ls -al'
 
 # colors
