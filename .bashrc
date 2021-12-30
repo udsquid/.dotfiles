@@ -2,7 +2,7 @@
 export LC_ALL='en_US.UTF-8'
 
 # aliases
-alias ls='ls -G'
+alias ls='ls --color=always'
 alias ll='ls -al'
 
 # colors
