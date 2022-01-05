@@ -66,6 +66,7 @@
 ;; better help system
 (use-package helpful)
 
+;; completion framework
 (use-package vertico
   :init
   (vertico-mode)
