@@ -66,13 +66,25 @@
 ;; better help system
 (use-package helpful)
 
-;; powerful search framework
-(use-package helm
-  :bind (("M-x"             . helm-M-x)
-	 ([remap find-file] . helm-find-files)
-	 ([remap occur]     . helm-occur))
+(use-package vertico
   :init
-  (helm-mode t))
+  (vertico-mode)
+  :custom
+  (vertico-cycle t))
+
+(use-package orderless
+  :init
+  (setq completion-category-defaults nil)
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-overrides '((file (styles partial-completion)))))
+
+(use-package marginalia
+  :after vertico
+  :init
+  (marginalia-mode))
+
+(use-package consult)
 
 ;; disable auto save buffer
 (setq auto-save-default nil)
@@ -412,7 +424,6 @@
 
 ;; copy environment variables
 (use-package exec-path-from-shell
-  :after vterm
   :init
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
@@ -601,9 +612,14 @@
     "wo" '(delete-other-windows                     :which-key "only")
     "ww" '(delete-window                            :which-key "close")
 
-    ;; kill-ring
-    "k"  '(:ignore t           :which-key "kill-ring")
-    "kk" '(helm-show-kill-ring :which-key "show")
+    ;; consult
+    "c"  '(:ignore t                   :which-key "consult")
+    "cl" '(consult-line                :which-key "line")
+    "cg" '(consult-ripgrep             :which-key "ripgrep")
+    "ch" '(consult-org-heading         :which-key "heading")
+    "ci" '(consult-imenu               :which-key "imenu")
+    "cm" '(consult-mark                :which-key "mark")
+    "ck" '(consult-yank-from-kill-ring :which-key "kill ring")
     )
   )
 
@@ -628,11 +644,6 @@
     ("w" mc/mark-next-like-this-word "word")
     ("a" mc/mark-all-like-this       "all")
     ("q" nil                         "finish" :exit t))
-  (defhydra hydra-mark-ring (:timeout 4)
-    "mark ring"
-    ("o" org-mark-ring-goto "org")
-    ("e" my/jump-to-mark    "emacs")
-    ("q" nil                "finish" :exit t))
   (defhydra hydra-org-heading ()
     "heading"
     ("n" org-next-visible-heading        "next")
@@ -656,7 +667,6 @@
 (my/leader-keys
   "t"  '(hydra-text-scale/body             :which-key "text")
   "mt" '(hydra-multiple-cursors/body       :which-key "this")
-  "mr" '(hydra-mark-ring/body              :which-key "ring")
   "oh" '(hydra-org-heading/body            :which-key "org heading")
   "dt" '(hydra-org-roam-day-traversal/body :which-key "day traversal")
   "i"  '(hydra-indent/body                 :which-key "indentation")
