@@ -227,8 +227,7 @@
 (defun org-setup-mode ()
   (visual-line-mode t)
   (org-indent-mode)
-  (auto-revert-mode t)
-  (org-toggle-pretty-entities))
+  (auto-revert-mode t))
 
 (defun org-setup-refile ()
   (setq org-refile-targets
