@@ -401,6 +401,13 @@
   (deft-recursive t)
   (deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"))
 
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+
 ;; better terminal
 (use-package vterm
   :commands vterm
