@@ -590,7 +590,7 @@
     "raa" '(org-roam-alias-add             :which-key "add")
     "rar" '(org-roam-alias-remove          :which-key "remove")
     "rr"  '(org-roam-refile                :which-key "refile")
-    "re"  '(:ignore t                      :which-key "refs")
+    "re"  '(:ignore t                      :which-key "reference")
     "rea" '(org-roam-ref-add               :which-key "add")
 
     ;; org-roam-dailies
