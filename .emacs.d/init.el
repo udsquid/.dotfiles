@@ -592,6 +592,9 @@
     "rr"  '(org-roam-refile                :which-key "refile")
     "re"  '(:ignore t                      :which-key "reference")
     "rea" '(org-roam-ref-add               :which-key "add")
+    "rt"  '(:ignore t                      :which-key "tag")
+    "rta" '(org-roam-tag-add               :which-key "add")
+    "rtd" '(org-roam-tag-remove            :which-key "remove")
 
     ;; org-roam-dailies
     "d"   '(:ignore t                          :which-key "dailies")
