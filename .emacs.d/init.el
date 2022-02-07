@@ -419,9 +419,9 @@
 	("M-p" . vterm-previous-prompt)
 	("M-n" . vterm-next-prompt)
 	("M-v" . yank)
-	("s-c" . vterm-copy-mode))
+	("M-C" . vterm-copy-mode))
   (:map vterm-copy-mode-map
-	("s-c" . vterm-copy-mode))
+	("M-C" . vterm-copy-mode))
   :config
   (setq vterm-shell "/usr/local/bin/bash")
   (setq vterm-max-scrollback 10000)
