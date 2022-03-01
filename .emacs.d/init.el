@@ -401,6 +401,13 @@
   (deft-recursive t)
   (deft-strip-summary-regexp ":PROPERTIES:\n\\(.+\n\\)+:END:\n"))
 
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+
 ;; better terminal
 (use-package vterm
   :commands vterm
@@ -412,9 +419,9 @@
 	("M-p" . vterm-previous-prompt)
 	("M-n" . vterm-next-prompt)
 	("M-v" . yank)
-	("s-c" . vterm-copy-mode))
+	("M-C" . vterm-copy-mode))
   (:map vterm-copy-mode-map
-	("s-c" . vterm-copy-mode))
+	("M-C" . vterm-copy-mode))
   :config
   (setq vterm-shell "/usr/local/bin/bash")
   (setq vterm-max-scrollback 10000)
@@ -583,8 +590,11 @@
     "raa" '(org-roam-alias-add             :which-key "add")
     "rar" '(org-roam-alias-remove          :which-key "remove")
     "rr"  '(org-roam-refile                :which-key "refile")
-    "rs"  '(:ignore t                      :which-key "refs")
-    "rsa" '(org-roam-ref-add               :which-key "add")
+    "re"  '(:ignore t                      :which-key "reference")
+    "rea" '(org-roam-ref-add               :which-key "add")
+    "rt"  '(:ignore t                      :which-key "tag")
+    "rta" '(org-roam-tag-add               :which-key "add")
+    "rtd" '(org-roam-tag-remove            :which-key "remove")
 
     ;; org-roam-dailies
     "d"   '(:ignore t                          :which-key "dailies")
