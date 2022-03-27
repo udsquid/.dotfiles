@@ -303,6 +303,10 @@
 	  ("q" "org-protocol-capture (with quote)"
 	   entry (file ,(concat org-directory "GTD/Inbox.org"))
 	   "* TODO [[%:link][%:description]]\n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%u" :immediate-finish t)
+	  ("j" "Journal"
+	   entry (file+olp+datetree ,(concat org-directory "journal/Journal.org"))
+	   "\n* %<%I:%M %p> %^{Heading}\n\n%?\n\n"
+	   :empty-lines 1)
 	  ))
   )
 
