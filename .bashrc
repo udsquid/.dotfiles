@@ -1,3 +1,8 @@
+# bash
+if [[ -f ~/.bashrc.local.pre ]]; then
+    . ~/.bashrc.local.pre
+fi
+
 # locale
 export LC_ALL='en_US.UTF-8'
 
@@ -107,6 +112,7 @@ vterm_prompt_end(){
 }
 PS1=$PS1'\[$(vterm_prompt_end)\]'
 
-if [[ -f ~/.bashrc.local ]]; then
-    . ~/.bashrc.local
+# bash
+if [[ -f ~/.bashrc.local.post ]]; then
+    . ~/.bashrc.local.post
 fi
