@@ -422,7 +422,8 @@
 	("M-p" . vterm-previous-prompt)
 	("M-n" . vterm-next-prompt)
 	("M-v" . yank)
-	("M-C" . vterm-copy-mode))
+	("M-C" . vterm-copy-mode)
+	("C-u" . vterm-send-C-u))
   (:map vterm-copy-mode-map
 	("M-C" . vterm-copy-mode))
   :config
