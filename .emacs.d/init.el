@@ -584,6 +584,7 @@
     "oep" '(org-toggle-pretty-entities      :which-key "pretty")
     "oeh" '(org-entities-help               :which-key "help")
     "oi"  '(org-time-stamp-inactive         :which-key "inactive timestamp")
+    "ok"  '(org-clock-report                :which-key "clock report")
 
     ;; org-roam
     "r"   '(:ignore t                      :which-key "org-roam")
