@@ -370,7 +370,7 @@
    '(("d" "default" entry "\n* %<%I:%M %p>: %?"
       :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
   :config
-  (org-roam-db-autosync-mode)
+  (org-roam-db-autosync-enable)
   (require 'org-roam-protocol)
   (setq org-roam-capture-ref-templates
 	'(("r" "ref" plain
