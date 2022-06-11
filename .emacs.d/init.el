@@ -423,7 +423,8 @@
 	("M-p" . vterm-previous-prompt)
 	("M-n" . vterm-next-prompt)
 	("M-v" . yank)
-	("M-C" . vterm-copy-mode))
+	("M-C" . vterm-copy-mode)
+	("C-u" . vterm-send-C-u))
   (:map vterm-copy-mode-map
 	("M-C" . vterm-copy-mode))
   :config
@@ -584,6 +585,7 @@
     "oep" '(org-toggle-pretty-entities      :which-key "pretty")
     "oeh" '(org-entities-help               :which-key "help")
     "oi"  '(org-time-stamp-inactive         :which-key "inactive timestamp")
+    "ok"  '(org-clock-report                :which-key "clock report")
 
     ;; org-roam
     "r"   '(:ignore t                      :which-key "org-roam")

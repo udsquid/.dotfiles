@@ -1,3 +1,8 @@
+# bash
+if [[ -f ~/.bashrc.local.pre ]]; then
+    . ~/.bashrc.local.pre
+fi
+
 # locale
 export LC_ALL='en_US.UTF-8'
 
@@ -106,3 +111,8 @@ vterm_prompt_end(){
     vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
 }
 PS1=$PS1'\[$(vterm_prompt_end)\]'
+
+# bash
+if [[ -f ~/.bashrc.local.post ]]; then
+    . ~/.bashrc.local.post
+fi
