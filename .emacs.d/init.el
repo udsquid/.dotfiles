@@ -48,6 +48,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; setup time format
+(setq system-time-locale "en_US")
+
 ;; setup font
 (set-face-attribute 'default nil
 		    :font    "DejaVu Sans Mono"
