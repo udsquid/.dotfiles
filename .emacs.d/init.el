@@ -630,6 +630,11 @@
     "wd" '(split-window-down-and-move-there-dammit  :which-key "down")
     "wo" '(delete-other-windows                     :which-key "only")
     "ww" '(delete-window                            :which-key "close")
+    "ws" '(:ignore t                                :which-key "swap")
+    "wsl" '(windmove-swap-states-left               :which-key "left")
+    "wsr" '(windmove-swap-states-right              :which-key "right")
+    "wsu" '(windmove-swap-states-up                 :which-key "up")
+    "wsd" '(windmove-swap-states-down               :which-key "down")
 
     ;; consult
     "c"  '(:ignore t                   :which-key "consult")
