@@ -148,6 +148,12 @@
   :config
   (setq all-the-icons-dired-monochrome nil))
 
+(use-package all-the-icons-completion
+  :after (marginalia all-the-icons)
+  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
+  :init
+  (all-the-icons-completion-mode))
+
 ;; fancy but minimal mode-line
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
