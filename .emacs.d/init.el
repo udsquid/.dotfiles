@@ -391,6 +391,7 @@
 	   :if-new (file+head "${slug}.org"
 			      "#+title: ${title}\n#+date: %U\n")
 	   :unnarrowed t)))
+  (setq org-roam-node-display-template "${title:*} ${tags:30}")
   )
 
 (use-package org-download
