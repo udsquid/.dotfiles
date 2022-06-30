@@ -76,12 +76,14 @@
   :custom
   (vertico-cycle t))
 
-(use-package orderless
+(use-package savehist
   :init
-  (setq completion-category-defaults nil)
+  (savehist-mode))
+
+(use-package orderless
   :custom
-  (completion-styles '(orderless))
-  (completion-category-overrides '((file (styles partial-completion)))))
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package marginalia
   :after vertico
