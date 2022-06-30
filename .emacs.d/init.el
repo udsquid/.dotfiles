@@ -88,7 +88,9 @@
 (use-package marginalia
   :after vertico
   :init
-  (marginalia-mode))
+  (marginalia-mode)
+  :custom
+  (marginalia-align 'right))
 
 (use-package consult)
 
