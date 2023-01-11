@@ -70,6 +70,10 @@ function clean_up() {
 trap clean_up EXIT
 
 function bashtime_diff() {
+    if [[ ! -f "$BASHTIME_FILE" ]]; then
+	bashtime_save
+    fi
+
     local now=$(get_nanosec)
     local last=$(cat "$BASHTIME_FILE")
     printf "%.2f" $(echo "$now - $last" | bc)
