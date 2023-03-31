@@ -634,6 +634,8 @@
     "bn" '(my/buffer-name          :which-key "name")
     "bp" '(my/buffer-path          :which-key "path")
     "bf" '(my/buffer-full-name     :which-key "full name")
+    "br" '(narrow-to-region        :which-key "narrow to region")
+    "bw" '(widen                   :which-key "widen")
 
     ;; window
     "w"  '(:ignore t                                :which-key "window")
