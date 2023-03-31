@@ -349,7 +349,7 @@
   ;; enable language execution
   (org-babel-do-load-languages 'org-babel-load-languages
 			       '((emacs-lisp . t)
-				 (python .t )
+				 (python . t)
 				 (shell . t)))
 
   ;; code block generator
