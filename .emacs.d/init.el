@@ -253,56 +253,6 @@
   (setq org-refile-use-outline-path 'file)
   (setq org-refile-allow-creating-parent-nodes 'confirm))
 
-(defun my/org-roam-filter-by-tag (tag-name)
-  (lambda (node)
-    (member tag-name (org-roam-node-tags node))))
-
-(defun my/org-roam-list-notes-by-tag (tag-name)
-  (mapcar #'org-roam-node-file
-          (seq-filter
-           (my/org-roam-filter-by-tag tag-name)
-           (org-roam-node-list))))
-
-(defun my/org-roam-refresh-agenda-list ()
-  (interactive)
-  (setq org-agenda-files
-	(append (find-lisp-find-files (concat org-directory "/GTD") "\.org$")
-		(my/org-roam-list-notes-by-tag "Project"))))
-
-(defun org-setup-agenda ()
-  (require 'find-lisp)
-  (require 'org-roam)
-  ;; also want to see done tasks in 'Archive.org'
-  (setq org-agenda-files
-	(append (find-lisp-find-files (concat org-directory "/GTD") "\.org$")
-		(my/org-roam-list-notes-by-tag "Project")))
-  (setq org-agenda-custom-commands
-	`(("g" "Agenda Overview"
-	   ((agenda ""
-		    ((org-deadline-warning-days 7)))
-	    (todo "TODO|NEXT"
-		  ((org-agenda-overriding-header "To Refile")
-		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")))))
-	    (todo "DONE|CANCELLED"
-		  ((org-agenda-overriding-header "To Archive")
-		   (org-agenda-files '(,(concat org-directory "GTD/Inbox.org")
-				       ,(concat org-directory "GTD/Queue.org")))))
-	    (todo "NEXT"
-		  ((org-agenda-overriding-header "In Progress")
-		   (org-agenda-files '(,(concat org-directory "GTD/Queue.org")
-				       ,(apply 'format "%s"
-					       (my/org-roam-list-notes-by-tag "Project"))))))
-	    (todo "TODO"
-		  ((org-agenda-overriding-header "Projects")
-		   (org-agenda-files (my/org-roam-list-notes-by-tag "Project"))))
-	    (tags-todo "+{work\\|Work}+TODO=\"TODO\""
-		  ((org-agenda-overriding-header "Work")))
-	    (tags-todo "-{work\\|Work}+TODO=\"TODO\""
-		  ((org-agenda-overriding-header "One-off Tasks")
-		   (org-agenda-files '(,(concat org-directory "GTD/Queue.org")))))
-	    ))))
-  )
-
 (defun org-setup-capture ()
   (server-start)
   (require 'org-protocol)
@@ -343,7 +293,6 @@
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-setup-font)
   (org-setup-refile)
-  (org-setup-agenda)
   (org-setup-capture)
 
   ;; enable language execution
@@ -588,7 +537,6 @@
     "ob"  '(org-insert-structure-template   :which-key "block")
     "os"  '(org-sort                        :which-key "sort")
     "on"  '(org-add-note                    :which-key "note")
-    "of"  '(my/org-roam-refresh-agenda-list :which-key "rebuild org-agenda-files")
     "ot"  '(org-set-tags-command            :which-key "set tags")
     "ol"  '(:ignore t                       :which-key "link")
     "olc" '(org-store-link                  :which-key "copy")
