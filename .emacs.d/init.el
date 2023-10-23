@@ -140,7 +140,7 @@
 	 ("s-r" . mc/mark-previous-like-this)))
 
 ;; pretty icons
-;; remember to run command: all-the-icons-install-fonts
+;; remember to run command: all-the-icons-install-fonts & nerd-icons-install-fonts
 (use-package all-the-icons)
 
 (use-package all-the-icons-dired
