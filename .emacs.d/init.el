@@ -336,7 +336,7 @@
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
-  (setq org-directory "~/Dropbox/mywiki/")
+  (setq org-directory "~/Dropbox/02.Areas/mywiki/")
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
 	  (sequence "|" "CANCELLED(c!)")))
@@ -377,7 +377,7 @@
 (use-package org-roam
   :after org
   :custom
-  (org-roam-directory "~/Dropbox/mywiki")
+  (org-roam-directory "~/Dropbox/02.Areas/mywiki")
   (org-roam-completion-everywhere t)
   (org-roam-dailies-capture-templates
    '(("d" "default" entry "\n* %<%I:%M %p>: %?"
@@ -402,7 +402,7 @@
          ("s-y" . org-download-yank)))
   :config
   (setq org-download-screenshot-method "screencapture -i %s")
-  (setq-default org-download-image-dir "~/Dropbox/mywiki/images")
+  (setq-default org-download-image-dir "~/Dropbox/02.Areas/mywiki/images")
   (setq-default org-download-heading-lvl nil)
   )
 
