@@ -1,14 +1,22 @@
-# completions
-if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
-    . "/usr/local/etc/profile.d/bash_completion.sh"
-fi
-if [[ -r "/usr/local/etc/profile.d/docker.bash-completion" ]]; then
-    . "/usr/local/etc/profile.d/docker.bash-completion"
-fi
+# Locale
+export LC_ALL='en_US.UTF-8'
 
 # Set PATH, MANPATH, etc., for Homebrew.
 if [[ $OSTYPE =~ darwin.* ]] && [[ -a /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# uv
+export PATH="/Users/neil/.local/bin:$PATH"
+
+# mysql
+if [[ -d "/usr/local/opt/mysql-client/bin" ]]; then
+    export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 fi
 
 # defer interactive things to .bashrc
