@@ -44,6 +44,7 @@ if command -v brew >/dev/null 2>&1; then
     . "$_BREW_PREFIX/etc/bash_completion"
   fi
 fi
+
 # Docker completion (adjust path as needed)
 if [[ -r "/usr/local/etc/profile.d/docker.bash-completion" ]]; then
   . "/usr/local/etc/profile.d/docker.bash-completion"
