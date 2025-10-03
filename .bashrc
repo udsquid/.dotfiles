@@ -35,6 +35,15 @@ fi
 
 alias ll='ls -al'
 
+# Load custom aliases if present
+if [[ -f ~/.bash_aliases ]]; then
+    . ~/.bash_aliases
+fi
+
+if [[ -f ~/.bash_aliases.local ]]; then
+    . ~/.bash_aliases.local
+fi
+
 # Completions (dynamically detect Homebrew path: /opt/homebrew or /usr/local)
 if command -v brew >/dev/null 2>&1; then
   _BREW_PREFIX="$(brew --prefix)"
