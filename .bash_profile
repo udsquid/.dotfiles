@@ -7,7 +7,9 @@ if [[ $OSTYPE =~ darwin.* ]] && [[ -a /opt/homebrew/bin/brew ]]; then
 fi
 
 # uv
-export PATH="/Users/neil/.local/bin:$PATH"
+if [[ -f ~/.local/bin/env ]]; then
+    . ~/.local/bin/env
+fi
 
 # mysql
 if [[ -d "/usr/local/opt/mysql-client/bin" ]]; then
