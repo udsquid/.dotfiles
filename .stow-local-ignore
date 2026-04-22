@@ -3,3 +3,6 @@
 \.claude
 \.stow-local-ignore
 README\.md
+\.emacs\.d/elpa
+\.emacs\.d/etc
+\.emacs\.d/var
