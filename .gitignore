@@ -1,1 +1,4 @@
 .claude/
+.emacs.d/elpa/
+.emacs.d/etc/
+.emacs.d/var/
