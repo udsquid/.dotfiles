@@ -22,17 +22,20 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
 
 ```bash
 # 切到這個 repo 的目錄
-cd ~/.dotfiles
+cd /path/to/dotfiles
 
 # 建立所有 symlinks（初次設定或新增檔案後執行）
-stow .
+# 建議加上 -t ~ 明確指定目標為家目錄，這樣 repo 放在哪裡都沒關係
+stow -t ~ .
 
 # 移除所有 symlinks
-stow -D .
+stow -t ~ -D .
 
 # 預覽會建立哪些 symlinks，不實際執行
-stow -n -v .
+stow -t ~ -n -v .
 ```
+
+> **建議**：養成習慣加 `-t ~`，不依賴 repo 的擺放位置，部署到任何機器都能正常運作。
 
 ## 目前管理的設定
 
