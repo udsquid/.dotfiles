@@ -11,11 +11,15 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
     .zshrc
     .emacs.d/
         init.el
+    .config/
+        starship.toml
 
 ~/                  ← 家目錄（symlinks）
     .zshrc       →  ~/.dotfiles/.zshrc
     .emacs.d/
         init.el  →  ~/.dotfiles/.emacs.d/init.el
+    .config/
+        starship.toml  →  ~/.dotfiles/.config/starship.toml
 ```
 
 ## 常用指令
@@ -24,8 +28,10 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
 # 切到這個 repo 的目錄
 cd /path/to/dotfiles
 
-# 建立所有 symlinks（初次設定或新增檔案後執行）
-# 建議加上 -t ~ 明確指定目標為家目錄，這樣 repo 放在哪裡都沒關係
+# 【初次設定】先建立 ~/.config 實體目錄，再執行 stow
+# 若 ~/.config 不存在，stow 會把整個目錄折疊成 symlink，
+# 導致其他工具安裝時把設定檔寫進這個 repo。
+mkdir -p ~/.config
 stow -t ~ .
 
 # 移除所有 symlinks
@@ -43,6 +49,7 @@ stow -t ~ -n -v .
 |---|---|
 | `.zshrc` | Zsh shell 設定 |
 | `.emacs.d/init.el` | Emacs 設定 |
+| `.config/starship.toml` | Starship 提示符設定 |
 
 ## 注意事項
 

@@ -11,6 +11,9 @@ elif [[ -d /usr/local/bin ]]; then
   export PATH="/usr/local/bin:$PATH"
 fi
 
+# 使用者本地執行檔（例如 claude）
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+
 # ────────────────────────────────────────────────────────────────────────────
 # Homebrew 環境變量
 # ────────────────────────────────────────────────────────────────────────────
