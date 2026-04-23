@@ -88,6 +88,43 @@ alias ls='ls -G'
 alias ll='ls -al'
 
 # ────────────────────────────────────────────────────────────────────────────
+# 自訂函式
+# ────────────────────────────────────────────────────────────────────────────
+
+# 從影片中提取音軌，自動偵測 codec 並以對應格式輸出
+v2audio() {
+    local input="$1"
+    local basename="${input%.*}"
+
+    local codec
+    codec=$(ffprobe -v quiet -select_streams a:0 \
+        -show_entries stream=codec_name \
+        -of default=noprint_wrappers=1:nokey=1 "$input")
+
+    if [[ -z "$codec" ]]; then
+        echo "Error: no audio stream found in $input" >&2
+        return 1
+    fi
+
+    local ext
+    case "$codec" in
+        aac)    ext="aac"  ;;
+        mp3)    ext="mp3"  ;;
+        opus)   ext="opus" ;;
+        vorbis) ext="ogg"  ;;
+        ac3)    ext="ac3"  ;;
+        eac3)   ext="eac3" ;;
+        flac)   ext="flac" ;;
+        alac)   ext="m4a"  ;;
+        pcm_*)  ext="wav"  ;;
+        *)      ext="mka"  ;;  # Matroska audio：支援任意 codec 的萬用容器
+    esac
+
+    echo "Detected codec: $codec → .$ext"
+    ffmpeg -i "$input" -vn -acodec copy "${basename}.${ext}"
+}
+
+# ────────────────────────────────────────────────────────────────────────────
 # 提示符與外觀設定
 # ────────────────────────────────────────────────────────────────────────────
 # 初始化 Starship 提示符（美觀的 shell 提示符主題）
