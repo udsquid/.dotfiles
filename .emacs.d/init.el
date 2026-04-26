@@ -69,6 +69,9 @@
 
 (global-set-key (kbd "s-f") 'my-quick-switch-buffer)
 
+;; 切換到下一個視窗（循環切換）
+(global-set-key (kbd "M-w") 'other-window)
+
 ;; ### 編輯類快捷鍵 ###
 ;; 複製和貼上（同時支援 Meta 和 Super，適應不同鍵盤習慣）
 (global-set-key (kbd "M-c") 'kill-ring-save)
@@ -708,7 +711,7 @@
   :config
   ;; 設定滾回緩衝區大小（更多歷史記錄）
   (setq vterm-max-scrollback 10000)
-  ;; 取消 M-w 的綁定，避免與 my-quick-switch-buffer 衝突
+  ;; 取消 M-w 的綁定，避免與全域 other-window 衝突
   (unbind-key "M-w" vterm-mode-map))
 
 ;; ============================================================================
