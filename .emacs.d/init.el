@@ -865,10 +865,12 @@
 ;; 標記多個相似的文字或區域，進行批量編輯
 (which-key-add-key-based-replacements
   "M-SPC m"   "mark"
+  "M-SPC m a" "all like this"
   "M-SPC m e" "more like this"
   "M-SPC m l" "multiple edit"
   "M-SPC m g" "region"
   )
+(define-key my-leader-map (kbd "m a") 'mc/mark-all-like-this)
 (define-key my-leader-map (kbd "m e") 'mc/mark-more-like-this-extended)
 (define-key my-leader-map (kbd "m l") 'mc/edit-lines)
 (define-key my-leader-map (kbd "m g") 'mc/mark-all-in-region)
