@@ -91,6 +91,14 @@ alias ll='ls -al'
 alias cc='claude'
 alias ccc='claude -c'
 
+# Codex
+alias c='codex'
+alias cr='codex resume'
+
+# Tmux
+alias t='tmux'
+alias ta='tmux attach'
+
 # ────────────────────────────────────────────────────────────────────────────
 # 自訂函式
 # ────────────────────────────────────────────────────────────────────────────
