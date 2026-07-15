@@ -99,10 +99,6 @@ alias cy='codex --dangerously-bypass-approvals-and-sandbox'
 alias cr='codex resume'
 alias cry='codex resume --dangerously-bypass-approvals-and-sandbox'
 
-# Tmux
-alias t='tmux'
-alias ta='tmux attach'
-
 # ────────────────────────────────────────────────────────────────────────────
 # 自訂函式
 # ────────────────────────────────────────────────────────────────────────────
