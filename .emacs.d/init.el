@@ -74,9 +74,17 @@
 
 ;; ### 編輯類快捷鍵 ###
 ;; 複製和貼上（同時支援 Meta 和 Super，適應不同鍵盤習慣）
-(global-set-key (kbd "M-c") 'kill-ring-save)
+(defun my-kill-ring-save-or-line ()
+  "有選取範圍時複製選取內容；沒有選取時複製目前整行。"
+  (interactive)
+  (if (use-region-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (kill-ring-save (line-beginning-position)
+                    (line-beginning-position 2))))
+
+(global-set-key (kbd "M-c") 'my-kill-ring-save-or-line)
 (global-set-key (kbd "M-v") 'yank)
-(global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "s-c") 'my-kill-ring-save-or-line)
 (global-set-key (kbd "s-v") 'yank)
 (global-set-key (kbd "M-y") 'yank-pop)  ; 循環顯示之前複製的內容
 
