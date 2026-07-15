@@ -79,8 +79,10 @@
   (interactive)
   (if (use-region-p)
       (kill-ring-save (region-beginning) (region-end))
-    (kill-ring-save (line-beginning-position)
-                    (line-beginning-position 2))))
+    (kill-ring-save (save-excursion
+                      (back-to-indentation)
+                      (point))
+                    (line-end-position))))
 
 (global-set-key (kbd "M-c") 'my-kill-ring-save-or-line)
 (global-set-key (kbd "M-v") 'yank)
