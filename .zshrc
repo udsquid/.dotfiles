@@ -89,11 +89,15 @@ alias ll='ls -al'
 
 # Claude Code
 alias cc='claude'
+alias ccy='claude --dangerously-skip-permissions'
 alias ccc='claude -c'
+alias cccy='claude -c --dangerously-skip-permissions'
 
 # Codex
 alias c='codex'
+alias cy='codex --dangerously-bypass-approvals-and-sandbox'
 alias cr='codex resume'
+alias cry='codex resume --dangerously-bypass-approvals-and-sandbox'
 
 # Tmux
 alias t='tmux'
