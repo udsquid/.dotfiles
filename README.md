@@ -13,6 +13,8 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
         init.el
     .config/
         starship.toml
+    .codex/
+        AGENTS.md
 
 ~/                  ← 家目錄（symlinks）
     .zshrc       →  ~/.dotfiles/.zshrc
@@ -20,6 +22,8 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
         init.el  →  ~/.dotfiles/.emacs.d/init.el
     .config/
         starship.toml  →  ~/.dotfiles/.config/starship.toml
+    .codex/
+        AGENTS.md  →  ~/.dotfiles/.codex/AGENTS.md
 ```
 
 ## 常用指令
@@ -28,10 +32,10 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
 # 切到這個 repo 的目錄
 cd /path/to/dotfiles
 
-# 【初次設定】先建立 ~/.config 實體目錄，再執行 stow
-# 若 ~/.config 不存在，stow 會把整個目錄折疊成 symlink，
+# 【初次設定】先建立會被工具寫入的實體目錄，再執行 stow
+# 若這些目錄不存在，stow 可能會把整個目錄折疊成 symlink，
 # 導致其他工具安裝時把設定檔寫進這個 repo。
-mkdir -p ~/.config
+mkdir -p ~/.config ~/.codex
 stow -t ~ .
 
 # 移除所有 symlinks
@@ -50,6 +54,7 @@ stow -t ~ -n -v .
 | `.zshrc` | Zsh shell 設定 |
 | `.emacs.d/init.el` | Emacs 設定 |
 | `.config/starship.toml` | Starship 提示符設定 |
+| `.codex/AGENTS.md` | Codex 個人指示 |
 
 ## 注意事項
 
