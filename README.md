@@ -15,6 +15,7 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
         starship.toml
     .codex/
         AGENTS.md
+    .gitconfig.aliases
 
 ~/                  ← 家目錄（symlinks）
     .zshrc       →  ~/.dotfiles/.zshrc
@@ -24,6 +25,7 @@ Stow 的核心概念是「symlink farm」：把真正的設定檔放在這個 re
         starship.toml  →  ~/.dotfiles/.config/starship.toml
     .codex/
         AGENTS.md  →  ~/.dotfiles/.codex/AGENTS.md
+    .gitconfig.aliases  →  ~/.dotfiles/.gitconfig.aliases
 ```
 
 ## 常用指令
@@ -55,6 +57,18 @@ stow -t ~ -n -v .
 | `.emacs.d/init.el` | Emacs 設定 |
 | `.config/starship.toml` | Starship 提示符設定 |
 | `.codex/AGENTS.md` | Codex 個人指示 |
+| `.gitconfig.aliases` | 共用 Git alias；由每台機器自己的 `.gitconfig` 載入 |
+
+## Git alias
+
+這個 repo 不管理 `~/.gitconfig` 本體，避免覆蓋每台機器自己的 Git 設定，例如 `user.name`、`user.email`、`pull`、`core`、`init`。
+
+每台機器只需要在自己的 `~/.gitconfig` 加上：
+
+```ini
+[include]
+    path = ~/.gitconfig.aliases
+```
 
 ## 注意事項
 
