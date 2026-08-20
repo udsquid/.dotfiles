@@ -72,9 +72,79 @@ commit message、程式碼旁的中文說明，不是只有對話回應。**不�
 - 不要寫「該欄位自上線起持續為 NULL，與 endpoint 欄位存在語意重疊」
   要寫「這個欄位從上線到現在都是空的，而且 endpoint 那欄本來就有同樣的資訊」
 
-## 工具與環境
+## 程式碼寫作原則
 
-### Python 專案
+這節適用於所有程式專案，不限特定 repo。
+
+### 適用界線
+
+- 只套用在新寫的程式碼，以及本來就要大改的部分。
+- 既有檔案維持它原本的風格，不要為了符合這節而順手重構周圍的程式碼。
+- 專案自己的風格規範與這節衝突時，以專案的為準。
+
+### Goal
+
+Write code that reads like prose. Optimize for a reader who does not
+know the codebase you are working in and will not expand any function
+you call.
+
+### While writing
+
+1. Name the unit before writing its body. If you cannot name it in
+   domain terms, you do not yet know what it does — stop and decide.
+2. Write the body as a sequence of named calls at one level of
+   abstraction (Composed Method + SLAP). Domain intent and
+   mechanism-level operations never share a body.
+3. Use the project's vocabulary, not the data structure's (Ubiquitous
+   Language). Prefer the noun a domain expert would say over the one the
+   implementation suggests.
+4. Place callers above callees (Stepdown Rule): high-level units first,
+   their helpers below, mechanism last — where the language's
+   conventions allow.
+
+### Before you call a unit done
+
+- Restate the body in one sentence, in domain terms.
+- Compare that sentence to the unit's name. Mismatch → rename. Cannot
+  state it in one sentence, or need "and" or a list → the unit does too
+  much; split it.
+- Any comment explaining *how*? → a level of abstraction is missing.
+  Extract it, name it, delete the comment. Keep only *why* comments:
+  trade-offs, external constraints, non-obvious decisions.
+- Any unit called exactly once whose name is no more informative than
+  its body? → inline it back. Extraction must remove a level of
+  abstraction, not merely relocate lines.
+- Final check: could a reader unfamiliar with this codebase restate what
+  this unit does after reading only its body, without expanding anything
+  it calls?
+
+### Known failure modes — do not do these
+
+- Generating a long function first and promising to refactor later.
+  Extract as you write.
+- Using a comment where a name would do.
+- "Refactoring" by relocating lines without removing a level of
+  abstraction.
+- Over-extracting idiomatic one-liners to satisfy a rule.
+
+## Python 專案
+
+### 工具
 
 - 用 `uv` 管理套件與虛擬環境。
 - 用 `ruff` 檢查程式碼風格與排版，不要另外裝 flake8、black、isort。
+
+### 寫作風格
+
+Idiomatic constructs are not mechanism leaks. A comprehension, a `with`
+block, an `enumerate`/`zip` call, or a dict lookup with a default reads
+as one thought to any Python reader — do not extract them to satisfy
+Composed Method.
+
+Type hints carry intent. Prefer a precise signature over a longer name:
+`def parse(raw: str) -> Report` beats `def parse_raw_string_into_report`.
+
+Stepdown applies to definition order within a module and to public
+methods above private (`_`-prefixed) helpers within a class. Imports,
+constants, and `if __name__ == "__main__"` keep their conventional
+positions regardless.
