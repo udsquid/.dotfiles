@@ -87,6 +87,11 @@ alias h='history'
 alias ls='ls -G'
 alias ll='ls -al'
 
+# Herdr 裡的一般藍色太深，資料夾改用較亮的青色
+if [[ -n "${HERDR_PANE_ID:-}" ]]; then
+  export LSCOLORS="Gxfxcxdxbxegedabagacad"
+fi
+
 # Claude Code
 alias cc='claude'
 alias ccy='claude --dangerously-skip-permissions'
