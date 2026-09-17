@@ -57,6 +57,7 @@ stow -t ~ -n -v .
 | `.emacs.d/init.el` | Emacs 設定 |
 | `.config/starship.toml` | Starship 提示符設定 |
 | `.codex/AGENTS.md` | Codex 個人指示 |
+| `.config/ringer/config.toml` | Ringer 的 engine 設定（codex / grok / opencode / claude 四條 worker lane）|
 | `.gitconfig.aliases` | 共用 Git alias；由每台機器自己的 `.gitconfig` 載入 |
 
 ## Git alias
