@@ -22,6 +22,12 @@ dashboard_port_base = 8787
 # still fail unless this is true.
 allow_full_access = false
 
+[update]
+# This checkout lives on local/claude-engine, so an automatic ff-only update on
+# main never applies; `git sync` does the updating. `./ringer.py self-update`
+# still works as an explicit check.
+auto = false
+
 # Optional model steering. The directory must contain profiles/ with one
 # Markdown profile per model. Ringer creates observations/ringer/ beneath this
 # directory automatically as attempts finish.
@@ -192,9 +198,11 @@ args_template = [
   "json",
   "--model",
   "{model}",
+  # {spec} sits before {engine_args}: --allowedTools, --add-dir and --mcp-config
+  # take several values and would swallow a prompt placed after them.
+  "{spec}",
   "--dangerously-skip-permissions",
   "{engine_args}",
-  "{spec}",
 ]
 sandbox_args = []
 full_access_args = ["--no-sandbox"]
